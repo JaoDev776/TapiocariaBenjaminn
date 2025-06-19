@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapiocaria do Nordeste - Sabores Autênticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bg-primary {
+            background-color: #D38F00;
+        }
+
+        .bg-secondary {
+            background-color: #5C2C06;
+        }
+
+        .bg-accent {
+            background-color: #D12C2F;
+        }
+
+        .bg-success {
+            background-color: #3B8C3F;
+        }
+
+        .bg-dark {
+            background-color: #432618;
+        }
+
+        .text-primary {
+            color: #D38F00;
+        }
+
+        .text-secondary {
+            color: #5C2C06;
+        }
+
+        .text-accent {
+            color: #D12C2F;
+        }
+
+        .text-success {
+            color: #3B8C3F;
+        }
+
+        .text-dark {
+            color: #432618;
+        }
+
+        .border-primary {
+            border-color: #D38F00;
+        }
+
+        .border-secondary {
+            border-color: #5C2C06;
+        }
+
+        .border-accent {
+            border-color: #D12C2F;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-item {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .animate-slideOutRight {
+            animation: slideOutRight 0.3s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .hero-pattern {
+            animation: fadeIn 1s ease-out;
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMTEsMTQzLDAsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+        }
+    </style>
+</head>
+
+<body class="font-montserrat bg-white text-secondary pb-16 md:pb-0">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-3xl text-primary mr-2"></i>
+                <h1 class="font-pacifico text-2xl md:text-3xl text-primary">Tapiocaria Benjaminn</h1>
+            </div>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="#Início" class="hover:text-primary font-semibold transition text-primary">Início</a>
+                <a href="cardapio.html" class="hover:text-primary font-semibold transition">Cardápio</a>
+                <a href="#sobre" class="hover:text-primary font-semibold transition">Sobre</a>
+                <a href="#contato" class="hover:text-primary font-semibold transition">Contato</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button data-open-cart
+                    class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition hover:animate-pulse relative">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span class="hidden md:inline">Carrinho</span>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bg-white shadow-md fixed bottom-0 left-0 right-0 z-50 md:hidden">
+        <div class="container mx-auto px-4 py-2 flex justify-around">
+            <a href="index.html"
+                class="hover:text-primary font-semibold transition flex flex-col items-center px-1 text-primary">
+                <i class="fas fa-home text-base md:text-lg"></i>
+                <span class="text-[10px] md:text-xs">Início</span>
+            </a>
+            <a href="cardapio.html" class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                <i class="fas fa-utensils text-base md:text-lg"></i>
+                <span class="text-[10px] md:text-xs">Cardápio</span>
+            </a>
+            <a href="index.html#sobre"
+                class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                <i class="fas fa-info-circle text-base md:text-lg"></i>
+                <span class="text-[10px] md:text-xs">Sobre</span>
+            </a>
+            <a href="index.html#contato"
+                class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                <i class="fas fa-phone-alt text-base md:text-lg"></i>
+                <span class="text-[10px] md:text-xs">Contato</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-pattern bg-secondary text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="font-pacifico text-4xl md:text-5xl mb-4">Sabores que contam histórias</h2>
+                <p class="text-xl mb-8">Experimente o verdadeiro sabor do Nordeste em cada mordida. Tapiocas artesanais
+                    e hambúrgueres com tempero caseiro.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button
+                        class="bg-accent text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition font-semibold hover:animate-bounce">
+                        <i class="fas fa-utensils mr-2"></i> Ver Cardápio
+                    </button>
+                    <button
+                        class="bg-primary text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition font-semibold hover:animate-bounce">
+                        <i class="fas fa-phone-alt mr-2"></i> Fazer Pedido
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                        alt="Tapioca nordestina" class="rounded-lg shadow-xl w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-pacifico text-3xl md:text-4xl text-primary mb-4">Sobre Nós</h2>
+                <p class="text-lg text-secondary max-w-2xl mx-auto">Conheça nossa história e tradição</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                        alt="Equipe da Tapiocaria" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-secondary mb-4">Tradiçao Nordestina</h3>
+                    <p class="text-gray-600 mb-4">A Tapiocaria do Nordeste nasceu da paixão pela culinária regional e do
+                        desejo de compartilhar os sabores autênticos do Nordeste brasileiro.</p>
+                    <p class="text-gray-600 mb-4">Nossas receitas são passadas de geração em geração, preparadas com
+                        ingredientes selecionados e muito carinho.</p>
+                    <p class="text-gray-600">Visite-nos e experimente o verdadeiro sabor da tapioca artesanal e dos
+                        hambúrgueres com tempero caseiro!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+    <!-- Menu Section -->
+    <section id="cardapio" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-pacifico text-3xl md:text-4xl text-primary mb-4">Os mais pedidos</h2>
+                <p class="text-lg text-secondary max-w-2xl mx-auto">Deliciosas opções para todos os gostos</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tapiocas -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item transition duration-300">
+                    <div class="bg-primary text-white py-2 px-4">
+                        <h3 class="font-semibold text-xl">Tapiocas</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-secondary">Tapioca de Queijo Coalho</h4>
+                            <p class="text-sm text-gray-600">Queijo coalho derretido e manteiga da terra</p>
+                            <p class="text-primary font-semibold mt-2">R$ 12,00</p>
+                            <button onclick="addToCart('Tapioca de Queijo Coalho', 12, 'Tapiocas')"
+                                class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburgers -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item transition duration-300">
+                    <div class="bg-secondary text-white py-2 px-4">
+                        <h3 class="font-semibold text-xl">Hambúrgueres</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-secondary">X-Tudo Nordestino</h4>
+                            <p class="text-sm text-gray-600">Pão de queijo, carne de sol, queijo coalho e bacon</p>
+                            <p class="text-primary font-semibold mt-2">R$ 22,00</p>
+                            <button onclick="addToCart('X-Tudo Nordestino', 22, 'Hambúrgueres')"
+                                class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bebidas -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item transition duration-300">
+                    <div class="bg-accent text-white py-2 px-4">
+                        <h3 class="font-semibold text-xl">Bebidas</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-secondary">Suco Natural</h4>
+                            <p class="text-sm text-gray-600">Cajá, caju, goiaba ou maracujá</p>
+                            <p class="text-primary font-semibold mt-2">R$ 8,00</p>
+                            <button onclick="addToCart('Suco Natural', 8, 'Bebidas')"
+                                class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Section -->
+        <section id="contato" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="font-pacifico text-3xl md:text-4xl text-primary mb-4">Contato</h2>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Entre em contato conosco</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-gray-50 rounded-lg shadow-md p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary text-xl mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-secondary">Endereço</h3>
+                                <p class="text-gray-600">Rua das Tapiocas, 123 - Centro</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary text-xl mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-secondary">Telefone</h3>
+                                <p class="text-gray-600"><a href="https://wa.me/5585987654321"
+                                        class="hover:text-primary">(85) 98765-4321</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary text-xl mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-secondary">Email</h3>
+                                <p class="text-gray-600">contato@tapioca.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-primary text-xl mr-4"></i>
+                            <div>
+                                <h3 class="font-semibold text-secondary">Horário</h3>
+                                <p class="text-gray-600">Ter-Dom: 10h às 22h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="space-y-4">
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="font-pacifico text-2xl text-primary mb-4">Tapiocaria Benjaminn</h3>
+                        <p class="mb-4">Sabores autênticos que contam a história do Nordeste brasileiro.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Horário de Funcionamento</h4>
+                        <p class="mb-2">Terça a Domingo: 10h às 22h</p>
+                        <p>Segunda-feira: Fechado</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Contato</h4>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Rua das Tapiocas, 123 -
+                            Centro</p>
+                        <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i> (85) 98765-4321</p>
+                        <p><i class="fas fa-envelope text-primary mr-2"></i> contato@tapiocariadonordeste.com</p>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                    <p>&copy; 2025 Tapiocaria Benjaminn. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden animate-slideInRight">
+            <div class="absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-lg overflow-y-auto">
+                <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="text-xl font-semibold text-secondary">Seu Carrinho</h3>
+                    <button id="closeCart" class="text-gray-500 hover:text-primary">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="p-4">
+                    <!-- Cart items will be added here dynamically -->
+                    <p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>
+                </div>
+                <div class="p-4 border-t border-gray-200">
+                    <div class="flex justify-between mb-4">
+                        <span class="font-semibold">Total:</span>
+                        <span id="cartTotal" class="font-semibold text-primary">R$ 0,00</span>
+                    </div>
+                    <button id="checkoutBtn"
+                        class="w-full bg-primary text-white py-3 rounded-full hover:bg-opacity-90 transition font-semibold">
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Cart functionality
+            let cart = [];
+
+            // Initialize cart immediately and update UI
+            loadCart();
+            updateCartCount();
+            const cartModal = document.getElementById('cartModal');
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            const openCartButtons = document.querySelectorAll('[data-open-cart]');
+            const closeCartButton = document.getElementById('closeCart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            // Open cart modal
+            openCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    cartModal.classList.remove('hidden');
+                });
+            });
+
+            // Close cart modal
+            closeCartButton.addEventListener('click', () => {
+                const cartContent = cartModal.querySelector('div');
+                cartContent.classList.add('animate-slideOutRight');
+
+                setTimeout(() => {
+                    cartModal.classList.add('hidden');
+                    cartContent.classList.remove('animate-slideOutRight');
+                }, 300); // Match animation duration
+            });
+
+            // Add to cart function
+            function addToCart(name, price, category) {
+                // Ensure cart is loaded
+                if (!cart) loadCart();
+                const existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name,
+                        price,
+                        category,
+                        quantity: 1
+                    });
+                }
+
+                // Save to localStorage immediately
+                try {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                } catch (e) {
+                    console.error('Failed to save cart:', e);
+                }
+
+                updateCart();
+                updateCartCount();
+                cartModal.classList.remove('hidden');
+            }
+
+            // Update cart display and save to storage
+            function updateCart() {
+                try {
+                    const cartString = JSON.stringify(cart);
+                    localStorage.setItem('cart', cartString);
+                    // Trigger storage event manually for current tab
+                    window.dispatchEvent(new StorageEvent('storage', {
+                        key: 'cart',
+                        newValue: cartString,
+                        oldValue: localStorage.getItem('cart'),
+                        storageArea: localStorage
+                    }));
+                } catch (e) {
+                    console.error('Failed to save cart:', e);
+                }
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>';
+                    cartTotalElement.textContent = 'R$ 0,00';
+                    return;
+                }
+
+                let total = 0;
+                let itemsHTML = '';
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+
+                    itemsHTML += `
+                    <div class="mb-4 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="font-semibold text-secondary">${item.name}</h4>
+                                <p class="text-sm text-gray-600">${item.category}</p>
+                            </div>
+                            <span class="text-primary font-semibold">R$ ${item.price.toFixed(2)}</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center border rounded-full">
+                                <button class="px-2 py-1 text-primary" onclick="updateQuantity('${item.name}', -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="px-2">${item.quantity}</span>
+                                <button class="px-2 py-1 text-primary" onclick="updateQuantity('${item.name}', 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <span class="font-semibold">R$ ${itemTotal.toFixed(2)}</span>
+                        </div>
+                    </div>
+                `;
+                });
+
+                cartItemsContainer.innerHTML = itemsHTML;
+                cartTotalElement.textContent = `R$ ${total.toFixed(2)}`;
+            }
+
+            // Update item quantity
+            function updateQuantity(name, change) {
+                const item = cart.find(item => item.name === name);
+                if (item) {
+                    item.quantity += change;
+
+                    if (item.quantity <= 0) {
+                        const index = cart.indexOf(item);
+                        cart.splice(index, 1);
+                    }
+
+                    updateCart();
+                    updateCartCount();
+                }
+            }
+
+            // Checkout
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length > 0) {
+                    // Build WhatsApp message
+                    let message = "✅ Olá! Acabei de finalizar meu pedido no site e gostaria de confirmar a compra. 🛒 Segue os detalhes abaixo:\n\n";
+                    message += "Produto(s) escolhido(s):\n";
+
+                    let total = 0;
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+                        message += `- ${item.name} (${item.quantity}x) - R$ ${itemTotal.toFixed(2)}\n`;
+                    });
+
+                    message += `\nValor total: R$ ${total.toFixed(2)}`;
+
+                    // Encode message for URL
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/5581984134213?text=${encodedMessage}`;
+
+                    // Open WhatsApp
+                    window.open(whatsappUrl, '_blank');
+
+                    // Clear cart
+                    cart.length = 0;
+                    updateCart();
+                    const cartContent = cartModal.querySelector('div');
+                    cartContent.classList.add('animate-slideOutRight');
+
+                    setTimeout(() => {
+                        cartModal.classList.add('hidden');
+                        cartContent.classList.remove('animate-slideOutRight');
+                    }, 300); // Match animation duration
+                }
+            });
+
+            // Update cart count
+            function updateCartCount() {
+                const count = cart.reduce((total, item) => total + item.quantity, 0);
+                const cartCountElement = document.getElementById('cart-count');
+                if (count > 0) {
+                    cartCountElement.textContent = count;
+                    cartCountElement.classList.remove('hidden');
+                } else {
+                    cartCountElement.classList.add('hidden');
+                }
+            }
+
+            // Load cart from localStorage when page loads
+            function loadCart() {
+                try {
+                    const savedCart = localStorage.getItem('cart');
+                    cart = savedCart ? JSON.parse(savedCart) : [];
+                    updateCartCount();
+                    // Also update the cart display if modal is open
+                    if (!cartModal.classList.contains('hidden')) {
+                        updateCart();
+                    }
+                } catch (e) {
+                    console.error('Failed to load cart:', e);
+                    cart = [];
+                }
+            }
+
+            // Initialize cart immediately
+            loadCart();
+            updateCart();
+
+            // Also initialize on DOMContentLoaded as fallback
+            document.addEventListener('DOMContentLoaded', function () {
+                loadCart();
+                updateCart();
+            });
+
+            // Listen for storage changes to sync cart between tabs
+            window.addEventListener('storage', function (event) {
+                if (event.key === 'cart') {
+                    try {
+                        const newCart = event.newValue ? JSON.parse(event.newValue) : [];
+                        // Only update if cart actually changed
+                        if (JSON.stringify(cart) !== JSON.stringify(newCart)) {
+                            cart = newCart;
+                            updateCart();
+                            updateCartCount();
+                        }
+                    } catch (e) {
+                        console.error('Failed to parse cart from storage:', e);
+                    }
+                }
+            });
+
+            // Make functions available globally
+            window.addToCart = addToCart;
+            window.updateQuantity = updateQuantity;
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapiocaria Benjaminn - Cardápio Completo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bg-primary {
+            background-color: #D38F00;
+        }
+
+        .bg-secondary {
+            background-color: #5C2C06;
+        }
+
+        .bg-accent {
+            background-color: #D12C2F;
+        }
+
+        .bg-success {
+            background-color: #3B8C3F;
+        }
+
+        .bg-dark {
+            background-color: #432618;
+        }
+
+        .text-primary {
+            color: #D38F00;
+        }
+
+        .text-secondary {
+            color: #5C2C06;
+        }
+
+        .text-accent {
+            color: #D12C2F;
+        }
+
+        .text-success {
+            color: #3B8C3F;
+            font-weight: 600;
+        }
+
+        .text-accent {
+            color: #D12C2F;
+            font-weight: 600;
+        }
+
+        .text-dark {
+            color: #432618;
+        }
+
+        .border-primary {
+            border-color: #D38F00;
+        }
+
+        .border-secondary {
+            border-color: #5C2C06;
+        }
+
+        .border-accent {
+            border-color: #D12C2F;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-item {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .animate-slideOutRight {
+            animation: slideOutRight 0.3s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .hero-pattern {
+            animation: fadeIn 1s ease-out;
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMTEsMTQzLDAsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+        }
+
+        .category-tab {
+            transition: all 0.3s ease;
+        }
+
+        .category-tab.active {
+            background-color: #D38F00;
+            color: white;
+        }
+
+        .category-tab:not(.active):hover {
+            background-color: #f3f4f6;
+        }
+
+        .menu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #D38F00;
+        }
+
+        .flavor-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+
+        .price-option {
+            text-align: center;
+            flex: 1;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .price-value {
+            font-weight: bold;
+            color: #D38F00;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: #3B8C3F;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(1rem);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            90% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(1rem);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-montserrat bg-white text-secondary pb-16 md:pb-0" x-data="{ loaded: false }"
+    x-init="setTimeout(() => loaded = true, 100)">
+    <!-- Loading Overlay -->
+    <div class="fixed inset-0 bg-primary z-50 transition-opacity duration-500 ease-out"
+        :class="loaded ? 'opacity-0 pointer-events-none' : 'opacity-100'">
+        <div class="flex items-center justify-center h-full">
+            <div class="animate-pulse flex flex-col items-center">
+                <i class="fas fa-utensils text-6xl text-white mb-4"></i>
+                <h2 class="font-pacifico text-3xl text-white">Tapiocaria Benjaminn</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div x-show="loaded" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100">
+        <!-- Header/Navbar -->
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-utensils text-3xl text-primary mr-2"></i>
+                    <h1 class="font-pacifico text-2xl md:text-3xl text-primary">Tapiocaria Benjaminn</h1>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-primary font-semibold transition">Início</a>
+                    <a href="cardapio.html"
+                        class="hover:text-primary font-semibold transition text-primary">Cardápio</a>
+                    <a href="index.html#sobre" class="hover:text-primary font-semibold transition">Sobre</a>
+                    <a href="index.html#contato" class="hover:text-primary font-semibold transition">Contato</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <button data-open-cart
+                        class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition relative">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        <span class="hidden md:inline">Carrinho</span>
+                        <span id="cart-count"
+                            class="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Bottom Navigation (Mobile) -->
+        <nav class="bg-white shadow-md fixed bottom-0 left-0 right-0 z-50 md:hidden">
+            <div class="container mx-auto px-4 py-2 flex justify-around">
+                <a href="index.html"
+                    class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                    <i class="fas fa-home text-base md:text-lg"></i>
+                    <span class="text-[10px] md:text-xs">Início</span>
+                </a>
+                <a href="cardapio.html"
+                    class="hover:text-primary font-semibold transition flex flex-col items-center px-1 text-primary">
+                    <i class="fas fa-utensils text-base md:text-lg"></i>
+                    <span class="text-[10px] md:text-xs">Cardápio</span>
+                </a>
+                <a href="index.html#sobre"
+                    class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                    <i class="fas fa-info-circle text-base md:text-lg"></i>
+                    <span class="text-[10px] md:text-xs">Sobre</span>
+                </a>
+                <a href="index.html#contato"
+                    class="hover:text-primary font-semibold transition flex flex-col items-center px-1">
+                    <i class="fas fa-phone-alt text-base md:text-lg"></i>
+                    <span class="text-[10px] md:text-xs">Contato</span>
+                </a>
+            </div>
+        </nav>
+
+
+        <!-- Menu Hero Section -->
+        <section class="hero-pattern bg-secondary text-white py-12 md:py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="font-pacifico text-4xl md:text-5xl mb-4">Cardápio Completo</h2>
+                <p class="text-xl mb-6">Deliciosas opções para todos os gostos</p>
+                <div class="flex justify-center">
+                    <div class="bg-white text-secondary rounded-full px-6 py-2 shadow-md">
+                        <i class="fas fa-clock mr-2 text-primary"></i>
+                        <span id="status-horario">Verificando horário...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Categories -->
+        <section class="py-8 bg-gray-50 sticky top-16 z-40 shadow-sm">
+            <div class="container mx-auto px-4">
+                <div class="flex overflow-x-auto pb-2 space-x-2">
+                    <button onclick="filterMenu('todos')"
+                        class="category-tab active whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Todos
+                    </button>
+                    <button onclick="filterMenu('tapiocas')"
+                        class="category-tab whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Tapiocas
+                    </button>
+                    <button onclick="filterMenu('cachorro-quente')"
+                        class="category-tab whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Cachorro Quente
+                    </button>
+                    <button onclick="filterMenu('hamburgers')"
+                        class="category-tab whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Hamburgers
+                    </button>
+                    <button onclick="filterMenu('acai')"
+                        class="category-tab whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Açaí
+                    </button>
+                    <button onclick="filterMenu('acompanhamentos')"
+                        class="category-tab whitespace-nowrap px-6 py-2 rounded-full font-semibold">
+                        Acompanhamentos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <!-- Tapiocas -->
+                <div id="tapiocas" class="menu-category mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-primary h-8 w-2 rounded-full mr-4"></div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Tapiocas</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Tapioca Doce -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6"
+                            x-data="{ shown: false }" x-intersect="shown = true"
+                            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 translate-y-4">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-ice-cream"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Coco</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-pink-100 text-pink-800">Doce</span>
+                                <span class="flavor-tag bg-amber-100 text-amber-800">Tradicional</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 3,50</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 5,50</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Coco (P)', 3.5, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Coco (G)', 5.5, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Coco com Queijo -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-cheese"></i>
+                                <i class="fas fa-coconut ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Coco com Queijo</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-pink-100 text-pink-800">Doce</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 5,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 8,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Coco c/ Queijo (P)', 5, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Coco c/ Queijo (G)', 8, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Queijo -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Queijo</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-amber-100 text-amber-800">Tradicional</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 4,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 6,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Queijo (P)', 4, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Queijo (G)', 6, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Cartola -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-bread-slice"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Cartola</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-pink-100 text-pink-800">Doce</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 6,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 10,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Cartola (P)', 6, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Cartola (G)', 10, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Calabresa -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Calabresa</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Calabresa</span>
+                                <span class="flavor-tag bg-amber-100 text-amber-800">Tradicional</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 6,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 9,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Calabresa (P)', 6, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Calabresa (G)', 9, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Frango -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Frango</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Frango</span>
+                                <span class="flavor-tag bg-amber-100 text-amber-800">Tradicional</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 6,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 9,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Frango (P)', 6, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Frango (G)', 9, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Bacon -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Bacon</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Bacon</span>
+                                <span class="flavor-tag bg-amber-100 text-amber-800">Tradicional</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 6,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 9,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Bacon (P)', 6, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Bacon (G)', 9, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Camarão com Queijo do Reino -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-fish"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Camarão c/ Queijo do Reino</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Camarão</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 18,00</div>
+                            <button onclick="addToCart('Tapioca Camarão c/ Queijo do Reino', 18, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Carne de Sol com Queijo Coalho -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Carne de Sol c/ Queijo Coalho</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Tapioca Carne de Sol c/ Queijo Coalho', 16, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Charque com Queijo Coalho -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Charque c/ Queijo Coalho</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 15,00</div>
+                            <button onclick="addToCart('Tapioca Charque c/ Queijo Coalho', 15, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Costela no Bafo com Queijo Coalho -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Costela no Bafo c/ Queijo Coalho</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Tapioca Costela no Bafo c/ Queijo Coalho', 16, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Frango com Bacon -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-bacon ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Frango c/ Bacon</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Frango</span>
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Bacon</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-option">
+                                    <div class="price-label">Pequena</div>
+                                    <div class="price-value">R$ 8,00</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-label">Grande</div>
+                                    <div class="price-value">R$ 12,00</div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('Tapioca Frango c/ Bacon (P)', 8, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Pequena - Adicionar
+                            </button>
+                            <button onclick="addToCart('Tapioca Frango c/ Bacon (G)', 12, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-2">
+                                Grande - Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Língua de Boi com Queijo Coalho -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Língua de Boi c/ Queijo Coalho</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 14,00</div>
+                            <button onclick="addToCart('Tapioca Língua de Boi c/ Queijo Coalho', 14, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca À Parmegiana com Mussarela -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-cheese"></i>
+                                <i class="fas fa-utensils ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">À Parmegiana c/ Mussarela</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 17,00</div>
+                            <button onclick="addToCart('Tapioca À Parmegiana c/ Mussarela', 17, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Charque, Carne de Sol e Coalho -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Charque, Carne de Sol e Coalho</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 18,00</div>
+                            <button onclick="addToCart('Tapioca Charque, Carne de Sol e Coalho', 18, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Costela Suína com Molho Barbecue -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <i class="fas fa-wine-bottle ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Costela Suína c/ Molho Barbecue</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Barbecue</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 17,00</div>
+                            <button onclick="addToCart('Tapioca Costela Suína c/ Molho Barbecue', 17, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Camarão aos 4 Queijos -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-fish"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Camarão aos 4 Queijos</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Camarão</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 20,00</div>
+                            <button onclick="addToCart('Tapioca Camarão aos 4 Queijos', 20, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Tapioca Sensação (Morango e Chocolate) -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-ice-cream"></i>
+                                <i class="fas fa-stroopwafel ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Sensação (Morango e Chocolate)</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-pink-100 text-pink-800">Doce</span>
+                                <span class="flavor-tag bg-brown-100 text-brown-800">Chocolate</span>
+                            </div>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Tapioca Sensação (Morango e Chocolate)', 16, 'Tapiocas')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cachorro Quente -->
+                <div id="cachorro-quente" class="menu-category mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-accent h-8 w-2 rounded-full mr-4"></div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Cachorro Quente</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Cachorro Quente Tradicional -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Tradicional</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Salsicha</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Clássico</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, salsicha, vinagrete, batata palha e molhos
+                            </p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 8,00</div>
+                            <button onclick="addToCart('Cachorro Quente Tradicional', 8, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Frango com Bacon -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                                <i class="fas fa-bacon ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Frango c/ Bacon</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Frango</span>
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Bacon</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, frango desfiado, bacon, vinagrete e molhos
+                            </p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 12,00</div>
+                            <button onclick="addToCart('Cachorro Quente Frango c/ Bacon', 12, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Calabresa -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-sausage ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Calabresa</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Calabresa</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Temperado</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, calabresa, vinagrete, batata palha e molhos
+                            </p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 10,00</div>
+                            <button onclick="addToCart('Cachorro Quente Calabresa', 10, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Frango -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Frango</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Frango</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Temperado</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, frango desfiado, vinagrete e molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 10,00</div>
+                            <button onclick="addToCart('Cachorro Quente Frango', 10, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Charque -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Charque</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Temperado</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, charque desfiado, vinagrete e molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 12,00</div>
+                            <button onclick="addToCart('Cachorro Quente Charque', 12, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Carne de Sol -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Carne de Sol</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Temperado</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, carne de sol desfiada, vinagrete e molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Cachorro Quente Carne de Sol', 16, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Costela no Bafo -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Costela no Bafo</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-gray-100 text-gray-800">Temperado</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, costela desfiada, vinagrete e molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Cachorro Quente Costela no Bafo', 16, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Cachorro Quente Camarão com Queijo -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                                <i class="fas fa-fish ml-1"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Camarão c/ Queijo</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Camarão</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, camarão, queijo, vinagrete e molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 18,00</div>
+                            <button onclick="addToCart('Cachorro Quente Camarão c/ Queijo', 18, 'Cachorro Quente')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburgers -->
+                <div id="hamburgers" class="menu-category mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-secondary h-8 w-2 rounded-full mr-4"></div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Hamburgers</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Hamburguer Na Simplicidade -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Na Simplicidade</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada, Queijo
+                                Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 11,00</div>
+                            <button onclick="addToCart('Hamburguer Na Simplicidade', 11, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Tô Ligado -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-egg ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Tô Ligado</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-yellow-200 text-yellow-800">Ovo</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada, Ovo,
+                                Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 12,00</div>
+                            <button onclick="addToCart('Hamburguer Tô Ligado', 12, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Calma Calabreso -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-sausage ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Calma Calabreso</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-red-200 text-red-800">Calabresa</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada,
+                                Calabresa, Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 14,00</div>
+                            <button onclick="addToCart('Hamburguer Calma Calabreso', 14, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Papós Viu -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-egg ml-1"></i>
+                                <i class="fas fa-bacon ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Papós Viu</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Bacon</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada, Ovo,
+                                Bacon, Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 13,00</div>
+                            <button onclick="addToCart('Hamburguer Papós Viu', 13, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Tabacudo -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Tabacudo</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Frango</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada, Frango,
+                                Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 14,00</div>
+                            <button onclick="addToCart('Hamburguer Tabacudo', 14, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Tá de Rosca -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Tá de Rosca</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-orange-200 text-orange-800">Cheddar</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salada, Cheddar,
+                                Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 15,00</div>
+                            <button onclick="addToCart('Hamburguer Tá de Rosca', 15, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Arretado de Bom -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-hamburger ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Arretado de Bom</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Dupla carne</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-orange-200 text-orange-800">Cheddar</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, 2 Hambúrguer Artesanal (100g), Salada,
+                                Cheddar, Queijo Mussarela e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 20,00</div>
+                            <button onclick="addToCart('Hamburguer Arretado de Bom', 20, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Comeu Morreu -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-bacon ml-1"></i>
+                                <i class="fas fa-sausage ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Comeu Morreu</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Completo</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-orange-100 text-orange-800">Bacon</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Salsicha, Bacon,
+                                Calabresa, Frango, Ovo, Cheddar, Salada e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 22,00</div>
+                            <button onclick="addToCart('Hamburguer Comeu Morreu', 22, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Oxente -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-drumstick-bite ml-1"></i>
+                                <i class="fas fa-cheese ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Oxente</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Carne de Sol</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo Coalho</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Carne de Sol,
+                                Queijo Coalho, Salada e Molhos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 18,00</div>
+                            <button onclick="addToCart('Hamburguer Oxente', 18, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Hamburguer Burguer Benjamin -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-star ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Burguer Benjamin</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-red-100 text-red-800">Premium</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Queijo</span>
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Especial</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Pão, Hambúrguer Artesanal (100g), Ovo, Salaminho,
+                                Fraldinha, Mussarela, Salada e Molho Benjamin</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 27,00</div>
+                            <button onclick="addToCart('Hamburguer Burguer Benjamin', 27, 'Hamburgers')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Adicionais Hamburguer -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-bold mb-6 text-center">Adicionais para Hamburguer</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Carne</div>
+                                <div class="text-primary font-bold">R$ 5,00</div>
+                                <button onclick="addToCart('Adicional Carne', 5, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Ovos</div>
+                                <div class="text-primary font-bold">R$ 2,00</div>
+                                <button onclick="addToCart('Adicional Ovos', 2, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Bacon</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Bacon', 3, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Cheddar</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Cheddar', 3, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Frango</div>
+                                <div class="text-primary font-bold">R$ 4,00</div>
+                                <button onclick="addToCart('Adicional Frango', 4, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Calabresa</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Calabresa', 3, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Molho Benjamin</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Molho Benjamin', 3, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Queijo Mussarela</div>
+                                <div class="text-primary font-bold">R$ 2,00</div>
+                                <button onclick="addToCart('Adicional Queijo Mussarela', 2, 'Adicionais')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Açaí -->
+                <div id="acai" class="menu-category mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-success h-8 w-2 rounded-full mr-4"></div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Açaí</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Açaí 340ml -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-wine-bottle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Açaí 340ml</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Tamanho P</span>
+                                <span class="flavor-tag bg-blue-100 text-blue-800">1 Fruta</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">1 Fruta / 1 Calda / 2 Acompanhamentos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 11,00</div>
+                            <button onclick="addToCart('Açaí 340ml', 11, 'Açaí')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Açaí 500ml -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-wine-bottle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Açaí 500ml</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Tamanho M</span>
+                                <span class="flavor-tag bg-blue-100 text-blue-800">2 Frutas</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">2 Frutas / 2 Caldas / 3 Acompanhamentos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 16,00</div>
+                            <button onclick="addToCart('Açaí 500ml', 16, 'Açaí')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Açaí 1 Litro -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-wine-bottle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Açaí 1 Litro</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Tamanho G</span>
+                                <span class="flavor-tag bg-blue-100 text-blue-800">4 Frutas</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">4 Frutas / 3 Caldas e todos Acompanhamentos</p>
+                            <div class="text-center text-primary font-bold text-xl mb-4">R$ 30,00</div>
+                            <button onclick="addToCart('Açaí 1 Litro', 30, 'Açaí')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Acompanhamentos Açaí -->
+                    <div class="mt-12">
+                        <h4 class="text-lg font-semibold mb-4 text-center">Adicionais Açaí</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Paçoca</div>
+                                <div class="text-primary font-bold">R$ 1,00</div>
+                                <button onclick="addToCart('Adicional Paçoca', 1, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Bis</div>
+                                <div class="text-primary font-bold">R$ 2,00</div>
+                                <button onclick="addToCart('Adicional Bis', 2, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Gota</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Gota', 3, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Óreo</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Óreo', 3, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Batom Garoto</div>
+                                <div class="text-primary font-bold">R$ 3,00</div>
+                                <button onclick="addToCart('Adicional Batom Garoto', 3, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <div class="font-semibold">Leite Condensado</div>
+                                <div class="text-primary font-bold">R$ 2,00</div>
+                                <button onclick="addToCart('Adicional Leite Condensado', 2, 'Adicionais Açaí')"
+                                    class="mt-2 bg-primary text-white px-3 py-1 rounded-full text-sm hover:bg-opacity-90 transition">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acompanhamentos -->
+                <div id="acompanhamentos" class="menu-category">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-dark h-8 w-2 rounded-full mr-4"></div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Acompanhamentos</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Acompanhamentos Tapioca -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Para Tapiocas</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-green-100 text-green-800">Vinagrete</span>
+                                <span class="flavor-tag bg-purple-100 text-purple-800">Azeitona</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Orégano</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Vinagrete, Azeitona, Orégano e molho benjaminn</p>
+                            <button onclick="addToCart('Para Tapiocas', 0, 'Acompanhamentos')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <!-- Acompanhamentos Cachorro Quente -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 menu-item p-6">
+                            <div class="menu-icon text-center">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-center">Para Cachorro Quente</h3>
+                            <div class="mb-4 text-center">
+                                <span class="flavor-tag bg-green-100 text-green-800">Vinagrete</span>
+                                <span class="flavor-tag bg-yellow-100 text-yellow-800">Batata Palha</span>
+                                <span class="flavor-tag bg-blue-100 text-blue-800">Milho</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-center">Vinagrete, Batata Palha, Milho e Ervilha, Ketchup
+                                e Maionese Benjamim</p>
+                            <button onclick="addToCart('Para Cachorro Quente', 0, 'Acompanhamentos')"
+                                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition mt-4">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offer Banner -->
+        <section class="bg-primary text-white py-8 transform transition-all duration-1000 ease-out"
+            x-data="{ shown: false }" x-intersect="shown = true"
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
+            <div class="container mx-auto px-4 text-center">
+                <h3 class="font-pacifico text-2xl md:text-3xl mb-2">Combo Nordestino</h3>
+                <p class="text-lg mb-4">Tapioca de queijo coalho + Suco natural + Pudim por apenas R$ 25,00</p>
+                <button onclick="addComboToCart()"
+                    class="bg-white text-primary px-6 py-2 rounded-full hover:bg-opacity-90 transition font-semibold">
+                    Pedir Combo
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden animate-slideInRight">
+            <div
+                class="absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-lg overflow-y-auto animate-slideInRight">
+                <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="text-xl font-semibold text-secondary">Seu Carrinho</h3>
+                    <button id="closeCart" class="text-gray-500 hover:text-primary">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="p-4">
+                    <!-- Cart items will be added here dynamically -->
+                    <p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>
+                </div>
+                <div class="p-4 border-t border-gray-200">
+                    <div class="flex justify-between mb-4">
+                        <span class="font-semibold">Total:</span>
+                        <span id="cartTotal" class="font-semibold text-primary">R$ 0,00</span>
+                    </div>
+                    <button id="checkoutBtn"
+                        class="w-full bg-primary text-white py-3 rounded-full hover:bg-opacity-90 transition font-semibold">
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="font-pacifico text-2xl text-primary mb-4">Tapiocaria Benjaminn</h3>
+                        <p class="mb-4">Sabores autênticos que contam a história do Nordeste brasileiro.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-primary transition">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Horário de Funcionamento</h4>
+                        <p class="mb-2">Terça a Domingo: 10h às 22h</p>
+                        <p>Segunda-feira: Fechado</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Contato</h4>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Rua das Tapiocas, 123 -
+                            Centro</p>
+                        <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i> (85) 98765-4321</p>
+                        <p><i class="fas fa-envelope text-primary mr-2"></i> contato@tapiocariadonordeste.com</p>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                    <p>&copy; 2025 Tapiocaria Benjaminn. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <script>
+            // Função para verificar horário de funcionamento
+            function atualizarStatusHorario() {
+                const agora = new Date();
+                const horaBrasilia = new Date(agora.getTime() - (agora.getTimezoneOffset() * 60000) - (3 * 3600000));
+                const horaAtual = horaBrasilia.getHours();
+                const minutoAtual = horaBrasilia.getMinutes();
+
+                const aberto = horaAtual >= 18 && horaAtual < 22;
+                const elemento = document.getElementById('status-horario');
+
+                if (aberto) {
+                    elemento.textContent = 'Aberto agora: 18h às 22h';
+                    elemento.classList.add('text-success');
+                    elemento.classList.remove('text-accent');
+                } else {
+                    elemento.textContent = 'Fechado - Abre às 18h';
+                    elemento.classList.add('text-accent');
+                    elemento.classList.remove('text-success');
+                }
+            }
+
+            // Chamar a função quando a página carrega e a cada minuto
+            document.addEventListener('DOMContentLoaded', () => {
+                atualizarStatusHorario();
+                setInterval(atualizarStatusHorario, 60000);
+            });
+
+            // Observer para animações
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const menuItems = entry.target.querySelectorAll('.menu-item');
+                        menuItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('animate-fade-in');
+                            }, index * 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todas as seções de menu
+            document.querySelectorAll('.menu-category').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Cart functionality - load from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartModal = document.getElementById('cartModal');
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            const cartCountElement = document.getElementById('cart-count');
+            const openCartButtons = document.querySelectorAll('[data-open-cart]');
+            const closeCartButton = document.getElementById('closeCart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            // Mapeamento de acompanhamentos e seus itens principais
+            const accompanimentRules = {
+                'Adicional Carne': ['Hamburgers'],
+                'Adicional Ovos': ['Hamburgers'],
+                'Adicional Bacon': ['Hamburgers'],
+                'Adicional Cheddar': ['Hamburgers'],
+                'Adicional Frango': ['Hamburgers'],
+                'Adicional Calabresa': ['Hamburgers'],
+                'Adicional Molho Benjamin': ['Hamburgers'],
+                'Adicional Queijo Mussarela': ['Hamburgers'],
+                'Adicional Paçoca': ['Açaí'],
+                'Adicional Bis': ['Açaí'],
+                'Adicional Gota': ['Açaí'],
+                'Adicional Óreo': ['Açaí'],
+                'Adicional Batom Garoto': ['Açaí'],
+                'Adicional Leite Condensado': ['Açaí'],
+                'Para Tapiocas': ['Tapiocas'],
+                'Para Cachorro Quente': ['Cachorro Quente']
+            };
+
+            // Verifica se o item principal está no carrinho
+            function hasMainItem(category) {
+                return cart.some(item => {
+                    if (category === 'Hamburgers') return item.category === 'Hamburgers';
+                    if (category === 'Açaí') return item.category === 'Açaí';
+                    if (category === 'Tapiocas') return item.category === 'Tapiocas';
+                    if (category === 'Cachorro Quente') return item.category === 'Cachorro Quente';
+                    return false;
+                });
+            }
+
+            // Open cart modal
+            openCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    cartModal.classList.remove('hidden');
+                });
+            });
+
+            // Close cart modal
+            closeCartButton.addEventListener('click', () => {
+                const cartContent = cartModal.querySelector('div');
+                cartContent.classList.add('animate-slideOutRight');
+
+                setTimeout(() => {
+                    cartModal.classList.add('hidden');
+                    cartContent.classList.remove('animate-slideOutRight');
+                }, 300);
+            });
+
+            // Add to cart function
+            function addToCart(name, price, category) {
+                // Verifica se é um acompanhamento e se o item principal está no carrinho
+                if (accompanimentRules[name]) {
+                    const requiredCategories = accompanimentRules[name];
+                    const hasRequiredItem = requiredCategories.some(cat => hasMainItem(cat));
+
+                    if (!hasRequiredItem) {
+                        const mainItems = requiredCategories.join(' ou ');
+                        showNotification(`Você precisa adicionar um ${mainItems} ao carrinho antes deste acompanhamento!`, 'error');
+                        return;
+                    }
+                }
+
+                const existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name,
+                        price,
+                        category,
+                        quantity: 1
+                    });
+                }
+
+                updateCart();
+                showNotification(`${name} adicionado ao carrinho!`, 'success');
+
+                // Atualiza o contador do carrinho
+                updateCartCount();
+            }
+
+            // Add combo to cart
+            function addComboToCart() {
+                addToCart('Tapioca de Queijo Coalho', 12, 'Tapiocas');
+                addToCart('Suco Natural', 8, 'Bebidas');
+                addToCart('Pudim de Leite Condensado', 10, 'Sobremesas');
+
+                // Aplica desconto
+                const comboItem = {
+                    name: 'Desconto Combo',
+                    price: -5,
+                    category: 'Promoção',
+                    quantity: 1
+                };
+                cart.push(comboItem);
+
+                updateCart();
+                showNotification('Combo Nordestino adicionado ao carrinho!', 'success');
+            }
+
+            // Show notification
+            function showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = `notification bg-${type === 'success' ? 'success' : 'accent'}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                    setTimeout(() => notification.remove(), 500);
+                }, 3000);
+            }
+
+            // Update cart display and save to localStorage
+            function updateCart() {
+                // Save cart to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>';
+                    cartTotalElement.textContent = 'R$ 0,00';
+                    return;
+                }
+
+                let total = 0;
+                let itemsHTML = '';
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+
+                    itemsHTML += `
+                    <div class="mb-4 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="font-semibold text-secondary">${item.name}</h4>
+                                <p class="text-sm text-gray-600">${item.category}</p>
+                            </div>
+                            <span class="text-primary font-semibold">R$ ${item.price.toFixed(2)}</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center border rounded-full">
+                                <button class="px-2 py-1 text-primary" onclick="updateQuantity('${item.name}', -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="px-2">${item.quantity}</span>
+                                <button class="px-2 py-1 text-primary" onclick="updateQuantity('${item.name}', 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <span class="font-semibold">R$ ${itemTotal.toFixed(2)}</span>
+                        </div>
+                    </div>
+                `;
+                });
+
+                cartItemsContainer.innerHTML = itemsHTML;
+                cartTotalElement.textContent = `R$ ${total.toFixed(2)}`;
+            }
+
+            // Update cart count
+            function updateCartCount() {
+                const count = cart.reduce((total, item) => total + item.quantity, 0);
+                if (count > 0) {
+                    cartCountElement.textContent = count;
+                    cartCountElement.classList.remove('hidden');
+                } else {
+                    cartCountElement.classList.add('hidden');
+                }
+            }
+
+            // Update item quantity
+            function updateQuantity(name, change) {
+                const item = cart.find(item => item.name === name);
+                if (item) {
+                    item.quantity += change;
+
+                    if (item.quantity <= 0) {
+                        const index = cart.indexOf(item);
+                        cart.splice(index, 1);
+                    }
+
+                    updateCart();
+                    updateCartCount();
+                }
+            }
+
+            // Checkout - Redireciona para o WhatsApp
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    showNotification('Seu carrinho está vazio!', 'error');
+                    return;
+                }
+
+                // Formata a mensagem para o WhatsApp
+                let message = "✅ Olá! Acabei de finalizar meu pedido no site e gostaria de confirmar a compra.\n\n";
+                message += "🛒 Segue os detalhes abaixo:\n\n";
+                message += "Produto(s) escolhido(s):\n";
+
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    message += `- ${item.name} (${item.quantity}x) - R$ ${itemTotal.toFixed(2)}\n`;
+                });
+
+                message += `\nValor total: R$ ${total.toFixed(2)}`;
+
+                // Codifica a mensagem para URL
+                const encodedMessage = encodeURIComponent(message);
+
+                // Número de telefone (substitua pelo número real)
+                const phoneNumber = "5585987654321";
+
+                // Cria o link do WhatsApp
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // Abre em uma nova aba
+                window.open(whatsappUrl, '_blank');
+
+                // Limpa o carrinho
+                cart.length = 0;
+                updateCart();
+                updateCartCount();
+                cartModal.classList.add('hidden');
+            });
+
+            // Filter menu by category
+            function filterMenu(category) {
+                // Update active tab
+                document.querySelectorAll('.category-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                event.target.classList.add('active');
+
+                // Scroll to category
+                if (category === 'todos') {
+                    window.scrollTo({
+                        top: document.querySelector('#tapiocas').offsetTop - 150,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo({
+                        top: document.querySelector(`#${category}`).offsetTop - 150,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Initialize cart on load
+            updateCart();
+            updateCartCount();
+
+            // Make functions available globally
+            window.addToCart = addToCart;
+            window.updateQuantity = updateQuantity;
+            window.filterMenu = filterMenu;
+            window.addComboToCart = addComboToCart;
+        </script>
+    </div>
+</body>
+
+</html>
