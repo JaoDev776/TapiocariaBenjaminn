@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="icon.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
 
@@ -1497,7 +1498,7 @@
                             <a href="#" class="text-white hover:text-primary transition">
                                 <i class="fab fa-facebook-f text-xl"></i>
                             </a>
-                            <a href="#" class="text-white hover:text-primary transition">
+                            <a href="https://www.instagram.com/tapiocaria_benjaminn_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-white hover:text-primary transition">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
                             <a href="#" class="text-white hover:text-primary transition">
@@ -1507,13 +1508,11 @@
                     </div>
                     <div>
                         <h4 class="text-xl font-semibold mb-4">Horário de Funcionamento</h4>
-                        <p class="mb-2">Terça a Domingo: 10h às 22h</p>
-                        <p>Segunda-feira: Fechado</p>
+                        <p class="mb-2">Ter - Domingo: 18h às 23h</p>
                     </div>
                     <div>
                         <h4 class="text-xl font-semibold mb-4">Contato</h4>
-                        <p class="mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Rua das Tapiocas, 123 -
-                            Centro</p>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Av Belém de Judá esquina da rua 17</p>
                         <p class="mb-2"><i class="fas fa-phone-alt text-primary mr-2"></i> (85) 98765-4321</p>
                         <p><i class="fas fa-envelope text-primary mr-2"></i> contato@tapiocariadonordeste.com</p>
                     </div>
@@ -1529,30 +1528,38 @@
         <script>
             // Função para verificar horário de funcionamento
             function atualizarStatusHorario() {
-                const agora = new Date();
-                const horaBrasilia = new Date(agora.getTime() - (agora.getTimezoneOffset() * 60000) - (3 * 3600000));
-                const horaAtual = horaBrasilia.getHours();
-                const minutoAtual = horaBrasilia.getMinutes();
 
-                const aberto = horaAtual >= 18 && horaAtual < 22;
-                const elemento = document.getElementById('status-horario');
-
+            const agora = new Date();
+            // Ajuste para o fuso horário de Brasília (UTC-3)
+            const horaBrasilia = new Date(agora.getTime());
+            const horaAtual = horaBrasilia.getHours();
+            
+            const elemento = document.getElementById('status-horario');
+            
+            // Verifica se está entre 18h e 23h (inclusive)
+            const aberto = horaAtual >= 18 && horaAtual < 23;
+            
+            if (elemento) { // Verifica se o elemento existe
                 if (aberto) {
-                    elemento.textContent = 'Aberto agora: 18h às 22h';
-                    elemento.classList.add('text-success');
+                    elemento.textContent = 'Aberto agora até 23h';
                     elemento.classList.remove('text-accent');
+                    elemento.classList.add('text-success');
                 } else {
-                    elemento.textContent = 'Fechado - Abre às 18h';
-                    elemento.classList.add('text-accent');
-                    elemento.classList.remove('text-success');
+                    // Verifica se já passou das 23h
+                    if (horaAtual >= 23 || horaAtual < 18) {
+                        elemento.textContent = 'Fechado - Abre às 18h';
+                        elemento.classList.remove('text-success');
+                        elemento.classList.add('text-accent');
+                    }
                 }
             }
-
+        }
             // Chamar a função quando a página carrega e a cada minuto
-            document.addEventListener('DOMContentLoaded', () => {
-                atualizarStatusHorario();
-                setInterval(atualizarStatusHorario, 60000);
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+
+            atualizarStatusHorario();
+            setInterval(atualizarStatusHorario, 60000); // Atualiza a cada minuto
+        });
 
             // Observer para animações
             const observerOptions = {
